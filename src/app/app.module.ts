@@ -13,6 +13,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { YesnoProvider } from '../providers/yesno/yesno';
 
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -38,7 +40,8 @@ import { YesnoProvider } from '../providers/yesno/yesno';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    YesnoProvider
+    YesnoProvider,
+    ScreenOrientation
   ]
 })
 export class AppModule {}

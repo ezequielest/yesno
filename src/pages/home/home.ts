@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { YesnoProvider } from '../../providers/yesno/yesno';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-home',
@@ -21,8 +22,10 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    private _yesno:YesnoProvider
+    private _yesno:YesnoProvider,
+    private screenOrientation: ScreenOrientation
   ) {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.obtenerResultado();
   }
 
