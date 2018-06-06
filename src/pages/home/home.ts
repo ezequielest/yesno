@@ -23,9 +23,9 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
     private _yesno:YesnoProvider,
-    private screenOrientation: ScreenOrientation
+    //private screenOrientation: ScreenOrientation
   ) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.obtenerResultado();
   }
 
