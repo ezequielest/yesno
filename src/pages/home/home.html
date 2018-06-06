@@ -4,23 +4,24 @@
   </ion-navbar>
 </ion-header>-->
 
-<ion-content padding yesno>
-    <ng-template style({color: #000}) >Mmm...</ng-template>
+<ion-content class="principal" padding yesno>
+    <div id="load" *ngIf="!imgCargada">Mmm...</div>
+    
     <img [ngClass]="fade" [ngStyle] ="{'display': visibilidad}" id="imgWallpaper" [src]="imagen" (load)="imagenCargada()">
-    <!--<img id="imgWallpaper" src="https://picsum.photos/800/400/?image=829" (load)="imagenCargada()">-->
 
     <div id="contenido">
-      <div class="mensajes" *ngIf="imgCargada; else cargando">
+      <div class="mensajes" *ngIf="imgCargada">
+
         <div *ngIf="answer == 'yes'; else no">
             <ion-icon name="md-thumbs-up"></ion-icon> SI
         </div>
-            
+        
         <ng-template #no><ion-icon name="md-thumbs-down"></ion-icon>NO</ng-template>
 
       </div>
 
       <div id="boton">
-        <button [ngStyle] ="{'display': visibilidad}" class="reconsultar" (click)="obtenerResultado()">Reconsultar</button>
+        <button [ngStyle] ="{'display': visibilidad}" class="reconsultar" (click)="obtenerResultado()">Deseame suerte</button>
       </div>
     </div>
 

@@ -8,12 +8,15 @@ import { YesnoProvider } from '../../providers/yesno/yesno';
 })
 export class HomePage {
 
-  resultado: any;
+  oResultado: any;
   answer: string = "MMM";
   imagen: string = "";
   imgCargada:boolean = false;
   visibilidad:string = "none";
   fade:string ="fadeIn";
+  seg:number = 0;
+  imagenesCargadas:any = [];
+  contador:any;
 
 
   constructor(
@@ -26,21 +29,42 @@ export class HomePage {
   obtenerResultado(){
     this.fade = "fadeOut";
     this.visibilidad = "none";
-    console.log('obteniendoData');
     this.imgCargada = false;
+
     this._yesno.consumirApi().subscribe(
       result => {
-        this.resultado =  result;
-        console.log(this.resultado)
+        this.oResultado = result;
+        this.seg = 3;
 
-        this.imagen = this.resultado.image;
-        this.answer = this.resultado.answer;
+            
+            if (this.imagenesCargadas.indexOf(this.oResultado.image) === -1){
+                this.imagen = this.oResultado.image;
+                this.imagenesCargadas.push(this.oResultado.image);
+                this.answer = this.oResultado.answer;
+            }else{
+
+              this.contador = setInterval(()=>{
+                this.seg -= 1;
+                console.log(this.seg);
+                if(this.seg == 0){
+                  
+                  this.imgCargada = true;
+                  this.visibilidad = "block";
+                  this.fade = "fadeIn";
+
+                  clearInterval(this.contador);
+
+                  return this.imgCargada;
+                }
+              },1000);
+            }
+
+        
       }
     );
   }
 
   imagenCargada(){
-    console.log('img cargada')
     this.imgCargada = true;
     this.visibilidad = "block";
     this.fade = "fadeIn";

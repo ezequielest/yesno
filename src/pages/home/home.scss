@@ -1,9 +1,22 @@
-page-home {
+.principal {
     background-color: chocolate;
     display: flex;
     align-items: center;
     justify-content: center;
     width:100%;
+
+    #load{
+
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 60px;
+        color:#fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        
+
+    }
 
     #imgWallpaper{
         object-fit: cover;
@@ -34,7 +47,7 @@ page-home {
         #boton button{
             bottom: -180px;
             padding:20px 40px;
-            background: brown;
+            background: chocolate;
             color: #fff;
             width:100%;
         }

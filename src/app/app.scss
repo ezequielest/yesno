@@ -18,6 +18,10 @@
 @import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
 @import "../assets/css/animate.css";
 
+ion-app{
+    background:chocolate;
+}
+
 ion-app.md [padding] .scroll-content{
     padding: 0px !important;
 }
