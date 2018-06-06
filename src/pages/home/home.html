@@ -1,17 +1,28 @@
-<ion-header>
+<!--<ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header>-->
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content padding yesno>
+    <ng-template #cargando>Cargando...</ng-template>
+    <img id="imgWallpaper" [src]="imagen" (load)="imagenCargada()">
+    <!--<img id="imgWallpaper" src="https://picsum.photos/800/400/?image=829" (load)="imagenCargada()">-->
+
+    <div id="contenido">
+      <div class="mensajes" *ngIf="imgCargada; else cargando">
+        <div *ngIf="answer == 'yes'; else no">
+            <ion-icon name="md-thumbs-up"></ion-icon> SI
+        </div>
+            
+        <ng-template #no><ion-icon name="md-thumbs-down"></ion-icon>NO</ng-template>
+
+      </div>
+
+      <div id="boton">
+        <button class="reconsultar" (click)="obtenerResultado()">Reconsultar</button>
+      </div>
+    </div>
+
+    
 </ion-content>

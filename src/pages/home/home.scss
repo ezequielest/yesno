@@ -1,3 +1,42 @@
 page-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+
+    #imgWallpaper{
+        object-fit: cover;
+        position: absolute;
+        height: 100%;
+        z-index: -1;
+    }
+
+    #contenido{
+        align-items: center;
+        justify-content: space-around;
+        flex-direction:column;
+        align-self:stretch;
+        display: flex;
+        height: 100%;
+        color: #fff;
+
+        .mensajes{
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 80px;
+            z-index: 999;
+
+            .icon{
+                margin-right: 20px;
+            }
+        }
+
+        #boton button{
+            bottom: -180px;
+            padding:20px 40px;
+            background: brown;
+            color: #fff;
+            width:100%;
+        }
+    }
 
 }
