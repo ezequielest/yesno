@@ -9,9 +9,11 @@ import { YesnoProvider } from '../../providers/yesno/yesno';
 export class HomePage {
 
   resultado: any;
-  answer: string;
-  imagen: string;
-  imgCargada = false;
+  answer: string = "MMM";
+  imagen: string = "";
+  imgCargada:boolean = false;
+  visibilidad:string = "none";
+  fade:string ="fadeIn";
 
 
   constructor(
@@ -22,6 +24,8 @@ export class HomePage {
   }
 
   obtenerResultado(){
+    this.fade = "fadeOut";
+    this.visibilidad = "none";
     console.log('obteniendoData');
     this.imgCargada = false;
     this._yesno.consumirApi().subscribe(
@@ -38,6 +42,8 @@ export class HomePage {
   imagenCargada(){
     console.log('img cargada')
     this.imgCargada = true;
+    this.visibilidad = "block";
+    this.fade = "fadeIn";
     return this.imgCargada;
   }
 

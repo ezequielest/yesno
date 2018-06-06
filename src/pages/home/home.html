@@ -5,8 +5,8 @@
 </ion-header>-->
 
 <ion-content padding yesno>
-    <ng-template #cargando>Cargando...</ng-template>
-    <img id="imgWallpaper" [src]="imagen" (load)="imagenCargada()">
+    <ng-template style({color: #000}) >Mmm...</ng-template>
+    <img [ngClass]="fade" [ngStyle] ="{'display': visibilidad}" id="imgWallpaper" [src]="imagen" (load)="imagenCargada()">
     <!--<img id="imgWallpaper" src="https://picsum.photos/800/400/?image=829" (load)="imagenCargada()">-->
 
     <div id="contenido">
@@ -20,7 +20,7 @@
       </div>
 
       <div id="boton">
-        <button class="reconsultar" (click)="obtenerResultado()">Reconsultar</button>
+        <button [ngStyle] ="{'display': visibilidad}" class="reconsultar" (click)="obtenerResultado()">Reconsultar</button>
       </div>
     </div>
 
